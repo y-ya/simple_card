@@ -1,5 +1,7 @@
 fileFormatVersion: 2
-guid: 8408ca4d708bb4bef8ce02e2c5d56a6a
+guid: dc52f1b29c7ec4d7f9c63f41a3161869
+labels:
+- FadecamtransitionFirst
 MonoImporter:
   serializedVersion: 2
   defaultReferences: []

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SingletonMonoBehaviour<T> : MonoBehaviour where T : MonoBehaviour
+public abstract class SingletonMonoBehaviour<T> : MonoBehaviour where T : MonoBehaviour
 {
 	private static T instance;
 	public static T Instance {
@@ -17,16 +17,16 @@ public class SingletonMonoBehaviour<T> : MonoBehaviour where T : MonoBehaviour
 			return instance;
 		}
 	}
-	
-	protected void Awake()
+
+	protected  void Awake()
 	{
 		CheckInstance();
 	}
-	
+
 	protected bool CheckInstance()
 	{
 		if( this == Instance){ return true;}
-		Destroy(this);
+		Destroy(gameObject);
 		return false;
 	}
 }
