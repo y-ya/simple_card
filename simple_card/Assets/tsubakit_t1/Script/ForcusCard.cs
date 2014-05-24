@@ -1,13 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SelectCard : MonoBehaviour
+public class ForcusCard : SingletonMonoBehaviour<ForcusCard>
 {
 	public delegate void TapObject (GameObject forcus);
 
-
+	/// <summary>
+	/// Occurs when forcus object e.
+	/// </summary>
 	public event TapObject forcusObjectE = null;
+
+	/// <summary>
+	/// Occurs when release object.
+	/// </summary>
 	public event TapObject releaseObjectE = null;
+
+	/// <summary>
+	/// forcus object
+	/// </summary>
+	/// <value>The forcus object.</value>
 	public GameObject forcusObject { get; private set; }
 	public bool isSelected {
 		get {
@@ -24,9 +35,9 @@ public class SelectCard : MonoBehaviour
 
 	void Update ()
 	{
+		// forcus object
 		if (Input.GetMouseButtonDown (0)) {
 
-			//var ray = _mainCamera.ScreenPointToRay (Input.mousePosition);
 			var tapPosition = _mainCamera.ScreenToWorldPoint (Input.mousePosition + Vector3.forward * -_mainCamera.transform.position.z);
 
 			var collider = Physics2D.OverlapCircle (tapPosition, 0.1f);
@@ -38,6 +49,7 @@ public class SelectCard : MonoBehaviour
 			}
 		}
 
+		// release object
 		if (Input.GetMouseButtonUp (0)) {
 			if (forcusObject != null && releaseObjectE != null) {
 				releaseObjectE (forcusObject);

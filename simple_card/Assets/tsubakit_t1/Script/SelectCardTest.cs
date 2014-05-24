@@ -1,13 +1,13 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class SelectCardTest : MonoBehaviour {
 
-	SelectCard selectCard;
+	ForcusCard selectCard;
 
 	void Awake ()
 	{
-		selectCard = GetComponent<SelectCard>();
+		selectCard = GetComponent<ForcusCard>();
 
 		selectCard.forcusObjectE += (forcus) => 
 		{
