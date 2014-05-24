@@ -17,14 +17,18 @@ public class CreateCard {
 		string file_name = makeFileString (number, mark);
 		return Resources.Load<Texture2D> ( file_name );
 	}*/
-	public GameObject findCardOfGameObject(int target = 1, int number = 0 , string mark = null ){
+	public GameObject findCardOfGameObject(int target = 1, bool set_kinematic = true, int number = 0 , string mark = null ){
 		if(string.IsNullOrEmpty(mark))
 			mark = card_type[Random.Range(0,4)];
 		if(number <= 0)
 			number = Random.Range(1,max_number);
 		string file_name = makeFileString (number, mark);
 
-		GameObject obj = Resources.Load<GameObject> ( "card" );
+		GameObject obj = Resources.Load<GameObject> ( "prefab/card" );
+		if(!set_kinematic){
+			Rigidbody2D r = obj.GetComponent<Rigidbody2D> ();
+			r.isKinematic = set_kinematic;
+		}
 		Card card = obj.GetComponent<Card> ();
 		card.number = number;
 		card.mark   = mark;
