@@ -18,7 +18,10 @@ public class FallCard : MonoBehaviour {
 		current_timer -= Time.deltaTime;
 		if (current_timer <= 0.0f) {
 			current_timer = createTime;
-			GameObject obj = Instantiate(createCard.findCardOfGameObject(1, false), new Vector3(Random.Range(-5,5), 5, 0), Quaternion.identity) as GameObject;
+			GameObject obj = Instantiate(createCard.findCardOfGameObject(1), new Vector3(Random.Range(-5,5), 5, 0), Quaternion.identity) as GameObject;
+			Rigidbody2D r = obj.GetComponent<Rigidbody2D> ();
+			r.isKinematic = false;
+			r.AddForce(new Vector2( Random.Range(-200f,200f),0));
 		}
 	}
 }
