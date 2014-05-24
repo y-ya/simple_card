@@ -6,13 +6,21 @@ public class InisializeCard : MonoBehaviour {
 	public string mark;
 	public int no;
 
+	public bool update = true;
+
 	void Start () {
 
 		var card = GetComponent<Card>();
-	
-		card.mark = mark;
-		card.number = no;
+		if( update == false){
+			Debug.Log(card.mark + "/" + card.number);
+			mark = card.mark ;
+			no = card.number;
+		}else
+		{
+			card.mark = mark;
+			card.number = no;
 
-		Debug.Log(card.mark + "/" + card.number);
+		}
+
 	}
 }

@@ -17,7 +17,7 @@ public class CreateCard {
 		string file_name = makeFileString (number, mark);
 		return Resources.Load<Texture2D> ( file_name );
 	}*/
-	public GameObject findCardOfGameObject(int target = 1, bool set_kinematic = true, int number = 0 , string mark = null ){
+	public GameObject findCardOfGameObject(Card.Target target = Card.Target.FallObject, bool set_kinematic = true, int number = 0 , string mark = null ){
 		if(string.IsNullOrEmpty(mark))
 			mark = card_type[Random.Range(0,4)];
 		if(number <= 0)
@@ -33,6 +33,8 @@ public class CreateCard {
 		card.number = number;
 		card.mark   = mark;
 		card.target = target;
+
+		Debug.Log(card.mark + "/" + card.number);
 		SpriteRenderer sr = obj.GetComponent<SpriteRenderer> ();
 		Debug.Log (Resources.Load<Sprite>(file_name));
 		sr.sprite = Resources.Load<Sprite>(file_name);
