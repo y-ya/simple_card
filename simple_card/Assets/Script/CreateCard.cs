@@ -27,7 +27,9 @@ public class CreateCard {
 		Card card = obj.GetComponent<Card> ();
 		card.number = number;
 		card.mark = mark;
-		obj.renderer.material.mainTexture = Resources.Load<Texture2D> ( file_name );
+		SpriteRenderer sr = obj.GetComponent<SpriteRenderer> ();
+		Debug.Log (Resources.Load<Sprite>(file_name));
+		sr.sprite = Resources.Load<Sprite>(file_name);
 		return obj;
 	}
 
