@@ -17,11 +17,25 @@ public class GameManager : MonoBehaviour {
 		if (isTimer) {
 			play_time -= Time.deltaTime;
 			if (play_time <= 0) {
-				Application.LoadLevel (Application.loadedLevelName);
+				enabled = false;
+				FadeCamera.Instance.UpdateMaskTexture( Resources.Load<Texture>("test1"));
+				FadeCamera.Instance.FadeOut(0.3f, ()=>
+				{
+					Application.LoadLevel (Application.loadedLevelName);
+					FadeCamera.Instance.UpdateMaskTexture( Resources.Load<Texture>("test2"));
+					FadeCamera.Instance.FadeIn(0.3f, null);
+				});
 			}
 		} else {
 			if(end_count <= 0){
-				Application.LoadLevel (Application.loadedLevelName);
+				enabled = false;
+				FadeCamera.Instance.UpdateMaskTexture( Resources.Load<Texture>("test1"));
+				FadeCamera.Instance.FadeOut(0.3f, ()=>
+				                            {
+					Application.LoadLevel (Application.loadedLevelName);
+					FadeCamera.Instance.UpdateMaskTexture( Resources.Load<Texture>("test2"));
+					FadeCamera.Instance.FadeIn(0.3f, null);
+				});
 			}
 		}
 	}
