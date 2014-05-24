@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 /*public class CreateCard : MonoBehaviour {
@@ -25,18 +25,11 @@ public class CreateCard {
 		string file_name = makeFileString (number, mark);
 
 		GameObject obj = Resources.Load<GameObject> ( "card" );
-		if(!set_kinematic){
-			Rigidbody2D r = obj.GetComponent<Rigidbody2D> ();
-			r.isKinematic = set_kinematic;
-		}
 		Card card = obj.GetComponent<Card> ();
 		card.number = number;
 		card.mark   = mark;
 		card.target = target;
-
-		Debug.Log(card.mark + "/" + card.number);
 		SpriteRenderer sr = obj.GetComponent<SpriteRenderer> ();
-		Debug.Log (Resources.Load<Sprite>(file_name));
 		sr.sprite = Resources.Load<Sprite>(file_name);
 		return obj;
 	}

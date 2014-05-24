@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class DestroySpriteOutsideCamera : MonoBehaviour {
@@ -19,5 +19,9 @@ public class DestroySpriteOutsideCamera : MonoBehaviour {
 	{
 		if( isVisible)
 			Destroy (gameObject);
+
+		if(!GameManager.manager.isTimer){
+			GameManager.manager.end_count -= 1;
+		}
 	}
 }

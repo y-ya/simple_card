@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class FallCard : MonoBehaviour {
@@ -22,6 +22,9 @@ public class FallCard : MonoBehaviour {
 				createCard.findCardOfGameObject(Card.Target.FallObject, false), 
 				new Vector3(Random.Range(-5,5), 5, 0), 
 				Quaternion.identity) as GameObject;
+			Rigidbody2D r = obj.GetComponent<Rigidbody2D> ();
+			r.isKinematic = false;
+			r.AddForce(new Vector2( Random.Range(-200f,200f),0));
 		}
 	}
 }
