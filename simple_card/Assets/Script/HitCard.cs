@@ -5,11 +5,21 @@ public class HitCard : MonoBehaviour
 {
 	void OnTriggerEnter2D (Collider2D other)
 	{
-		Destroy ( other.gameObject );
-		GameController.Instance.score += 1;
+		Card selfCardState = GetComponent<Card>();
+		Card hitCardState = other.GetComponent<Card>();
 
-		Destroy ( gameObject );
+		if( hitCardState == null)
+		{
+			return;
+		}
 
-		// TODO: カードの持つ種類が一致していたら消さない
+		if( hitCardState.mark  == selfCardState.mark ||
+		    hitCardState.number == selfCardState.number)
+		{
+			Destroy ( other.gameObject );
+			GameController.Instance.score += 1;
+			
+			Destroy ( gameObject );
+		}
 	}
 }
