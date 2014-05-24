@@ -24,7 +24,7 @@ public class CreateCard {
 			number = Random.Range(1,max_number);
 		string file_name = makeFileString (number, mark);
 
-		GameObject obj = Resources.Load<GameObject> ( "prefab/card" );
+		GameObject obj = Resources.Load<GameObject> ( "card" );
 		if(!set_kinematic){
 			Rigidbody2D r = obj.GetComponent<Rigidbody2D> ();
 			r.isKinematic = set_kinematic;
