@@ -14,6 +14,7 @@ GameObject:
   - 114: {fileID: 11400002}
   - 61: {fileID: 6100000}
   - 114: {fileID: 11400004}
+  - 114: {fileID: 11400006}
   m_Layer: 0
   m_Name: card
   m_TagString: Untagged
@@ -69,8 +70,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b90ca8c8176f47e1b6a80bbf4394473, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 4
-  mark: d
+  number: 6
+  mark: c
   target: 1
 --- !u!114 &11400002
 MonoBehaviour:
@@ -94,6 +95,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ce8737535d814be1bb9ecf698d1ad46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11400006
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 115a08fd1ce164d7da3ff91bd359188e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: {x: 0, y: 0, z: 0}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -115,7 +128,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortingLayerID: 0
-  m_Sprite: {fileID: 21300000, guid: cb9c5272fc5274361a856d5ede9535f2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 654270affff9442e0947896a9d94ac86, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:

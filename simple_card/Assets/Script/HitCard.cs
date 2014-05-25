@@ -18,8 +18,12 @@ public class HitCard : MonoBehaviour
 		{
 			Destroy ( other.gameObject );
 			GameController.Instance.score += 1;
-			
 			Destroy ( gameObject );
+			GameManager.combo.combo_counter += 1;
+
+			GameManager.combo.current_combo_timer = GameManager.combo.combo_timer;
 		}
 	}
+
+
 }

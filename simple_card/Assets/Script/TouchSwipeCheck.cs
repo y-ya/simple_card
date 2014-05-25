@@ -11,6 +11,7 @@ public class TouchSwipeCheck : MonoBehaviour {
 	public event ThrowEvent swipeE = null;
 	public event DragEvent dragging = null;
 
+	[HideInInspector]
 	public Vector3 preMousePositionPoition = Vector3.zero;
 
 	/*
