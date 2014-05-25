@@ -15,10 +15,17 @@ public class HitCard : MonoBehaviour
 			return;
 		}
 
+		if( !selfCardState.GetComponent<Card> ().isTouch )
+		{
+			return;
+		}
 		if( hitCardState.mark  == selfCardState.mark ||
 		    hitCardState.number == selfCardState.number)
 		{
-			Destroy ( other.gameObject );
+			//TODO
+			other.gameObject.rigidbody2D.AddForce(new Vector2(0f,1200f));
+			other.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+			//Destroy ( other.gameObject );
 			GameController.Instance.score += 1;
 			Destroy ( gameObject );
 			GameManager.combo.combo_counter += 1;
@@ -26,6 +33,5 @@ public class HitCard : MonoBehaviour
 			GameManager.combo.current_combo_timer = GameManager.combo.combo_timer;
 		}
 	}
-
 
 }

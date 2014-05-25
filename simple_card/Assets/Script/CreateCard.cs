@@ -30,7 +30,7 @@ public class CreateCard {
 		card.mark   = mark;
 		card.target = target;
 		SpriteRenderer sr = obj.GetComponent<SpriteRenderer> ();
-		sr.sprite = Resources.Load<Sprite>(file_name);
+		//sr.sprite = Resources.Load<Sprite>(file_name);
 		return obj;
 	}
 

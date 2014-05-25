@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class Card : MonoBehaviour {
@@ -6,10 +6,13 @@ public class Card : MonoBehaviour {
 	private int    __number;
 	private string __mark;
 	private int    __target;
+	private bool   __isTouch;
 	public int    number;
 	public string mark  ;
 
 	public Sprite cardImage;
+
+	public bool isTouch = false;
 
 	public TextMesh text;
 
@@ -19,25 +22,18 @@ public class Card : MonoBehaviour {
 		FallObject,
 	}
 
-	void Start()
-	{
-		GetComponent<SpriteRenderer>().sprite = cardImage;
-		text.text = number.ToString();
-
-		if( mark == "d" )
-		{
-			text.color = Color.red;
-		}
-		if( mark == "c")
-		{
-			text.color = Color.black;
-		}
-
-	}
-
 	/// <summary>
 	/// 0: player obj 1: fall obj
 	/// </summary>
 	/// <value>The target.</value>
 	public Target    target;
+	private float destroy_timer = 1f;
+	void Update(){
+		if(isTouch){
+			destroy_timer -= Time.deltaTime;
+			if(destroy_timer <= 0){
+				Destroy(gameObject);
+			}
+		}
+	}
 }
