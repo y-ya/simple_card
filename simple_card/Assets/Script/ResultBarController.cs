@@ -9,7 +9,7 @@ public class ResultBarController : MonoBehaviour {
 
 	float rate = 0 ;
 
-
+	public TextMesh text;
 
 	void Start () 
 	{
@@ -25,6 +25,8 @@ public class ResultBarController : MonoBehaviour {
 		{
 			bar.localScale = new Vector3(0.45f, 0.0f, 0.45f);
 		}
+
+		text.text = gameController.score.ToString();
 	}
 	
 	void Update () {
