@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour {
 		combo = obj.GetComponent<Combo> ();
 
 		GameController.Instance.score = 0;
+		Music.CurrentSource.source.pitch = 1.0f;
 	}
 	
 	// Update is called once per frame
