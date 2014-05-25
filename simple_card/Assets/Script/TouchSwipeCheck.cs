@@ -1,69 +1,77 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 
 public class TouchSwipeCheck : MonoBehaviour {
 
-	// PC用
-	#if UNITY_STANDALONE_OSX
-	void Start() {
-		GUI.Button (new Rect (30, 30, 200, 80), "モバイル用のクラスです");
+	public delegate void ThrowEvent(Vector3 direction);
+	public delegate void DragEvent(Vector3 dragWorldPosition);
+	
+	public event Action leftSwpeE = null;
+	public event ThrowEvent swipeE = null;
+	public event DragEvent dragging = null;
+
+	public Vector3 preMousePositionPoition = Vector3.zero;
+
+	/*
+	private float swipeStartTime = 0;
+	private Vector3 startSwipePosition = Vector3.zero;
+	*/
+
+	void OnDestroy()
+	{
+		leftSwpeE = null;
+		swipeE = null;
 	}
-	#endif
-	// モバイル用
-	#if UNITY_ANDROID || UNITY_IPHONE
-	private Vector2 touchDeltaPosition;
-	private Vector2 normalizeDeltePositon;
 
 	void Update ()
 	{
+		Vector3 mousePosition = Input.mousePosition;
 
-		if (Input.touchCount > 0) {	
-			Touch myTouch = Input.GetTouch(0);
+		if( Input.GetMouseButtonDown(0))
+		{
+			preMousePositionPoition = mousePosition;
+			//swipeStartTime = Time.timeSinceLevelLoad;
+			//startSwipePosition = Input.mousePosition;
+		}
 
-			switch (myTouch.phase) {
-			case TouchPhase.Began:
-//				Debug.Log ("touchPhase.Began");
-				break;
+		if( Input.GetMouseButtonUp(0) )
+		{
+			//float swipedTime = Time.timeSinceLevelLoad - swipeStartTime;
 
-			case TouchPhase.Moved:
-//				Debug.Log ("touchPhase.Moved");
+			if( swipeE != null )
+			{
+				//Vector3 diffSwipe = (preMousePositionPoition - startSwipePosition) / swipedTime;
+				Vector3 diffMousePosition = mousePosition - preMousePositionPoition;
 
-				// デルタ（正規化）する
-				touchDeltaPosition = Input.GetTouch(0).deltaPosition;
-//				Debug.Log("touchDeltaPosition:" + touchDeltaPosition);
-				normalizeDeltePositon = touchDeltaPosition.normalized;
-				Debug.Log("touchDeltaPosition normalized:" + normalizeDeltePositon);
-
-				// 絶対値に変換する
-				float mathabsX = Mathf.Abs(normalizeDeltePositon.x);
-				float mathabsY = Mathf.Abs(normalizeDeltePositon.y);
-				Debug.Log("mathabsX:" + mathabsX + " mathabsY:" + mathabsY);
-
-				if (mathabsX < mathabsY) {
-					if (touchDeltaPosition.x < 0f && touchDeltaPosition.y >= 0f) {
-						Debug.Log("上スワイプ!!!");
-					}
-	//				else if (touchDeltaPosition.x < 0f && touchDeltaPosition.y < 0f) {
-	//					Debug.Log("下スワイプ!!!");
-	//				}
+				if( swipeE != null){
+					swipeE( diffMousePosition );
 				}
-				if (mathabsX > mathabsY) {
-					if (touchDeltaPosition.x < 0f && touchDeltaPosition.y >= 0f) {
-						Debug.Log("左スワイプ!!!");
-					}
-	//				else if (touchDeltaPosition.x >= 0f && touchDeltaPosition.y < 0f) {
-	//					Debug.Log("右スワイプ!!!");
-	//				}
-				}
-
-				break;
-			// Report that a direction has been chosen when the finger is lifted.
-			case TouchPhase.Ended:
-//				Debug.Log ("touchPhase.Ended");
-				break;
 			}
 		}
+
+		if( Input.GetMouseButton(0))
+		{
+			Vector3 diffMousePosition = mousePosition - preMousePositionPoition;
+			float swipeAngle = Vector2.Angle( Vector3.up, diffMousePosition);
+
+			// swipe left
+			if( swipeAngle > 80 && swipeAngle < 110 && diffMousePosition.x < 0 )
+			{
+				if( leftSwpeE != null){ leftSwpeE(); }
+			}
+
+			if( dragging != null)
+			{
+				Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePosition - (Camera.main.transform.position.z * transform.forward));
+				dragging(worldPos);
+			}
+
+			preMousePositionPoition = mousePosition;
+
+		}else{
+			preMousePositionPoition = Vector3.zero;
+		}
 	}
-	#endif
 }
 

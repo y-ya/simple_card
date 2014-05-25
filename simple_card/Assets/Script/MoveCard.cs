@@ -5,25 +5,17 @@ using System.Collections;
 public class MoveCard : MonoBehaviour {
 
 	public Vector3 direction;
-	[Range(0.1f, 100)]
-	public float speed = 30;
-
-	private Vector3 realDirection;
 
 	public void SetDirection(Vector2 newDirection)
 	{
-		direction = newDirection.normalized;
-		realDirection = direction * speed;
+		direction = newDirection;
 	}
 
 	void Start () {
 		rigidbody2D.sleepMode = RigidbodySleepMode2D.NeverSleep;
-		realDirection = direction.normalized * speed;
 	}
 
 	void Update () {
-
-
-		transform.position += realDirection * Time.deltaTime;
+		transform.position += direction * Time.deltaTime;
 	}
 }

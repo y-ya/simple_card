@@ -20,7 +20,7 @@ public class DestroySpriteOutsideCamera : MonoBehaviour {
 		if( isVisible)
 			Destroy (gameObject);
 
-		if(!GameManager.manager.isTimer){
+		if(GameManager.manager != null && !GameManager.manager.isTimer){
 			GameManager.manager.end_count -= 1;
 		}
 	}
