@@ -803,6 +803,14 @@ MonoBehaviour:
   BGM: []
   SE:
   - {fileID: 8300000, guid: 42de90b322e434eddbde40f0c62304e4, type: 3}
+  - {fileID: 8300000, guid: 1f815485e3ce444e2b4676eb6c0334e3, type: 3}
+  - {fileID: 8300000, guid: 1177622335f3a4ab089608883d77442c, type: 3}
+  - {fileID: 8300000, guid: ea6a5f3c274a0454b8f9b3464e65a09c, type: 3}
+  - {fileID: 8300000, guid: 3dc0709126ba6444b8774cc41a1a7052, type: 3}
+  - {fileID: 8300000, guid: c3858dc85500a4c6a8407f66b095fbb8, type: 3}
+  - {fileID: 8300000, guid: 9baad3ee1f7fd4c5aa225a3c816ad406, type: 3}
+  - {fileID: 8300000, guid: 0e89b0afd04274e229101bea17d6e41d, type: 3}
+  - {fileID: 8300000, guid: 391319c26f9bb4af7972a0ed776974b0, type: 3}
   Voice: []
 --- !u!4 &1303036579
 Transform:
