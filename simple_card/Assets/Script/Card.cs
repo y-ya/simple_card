@@ -9,10 +9,30 @@ public class Card : MonoBehaviour {
 	public int    number;
 	public string mark  ;
 
+	public Sprite cardImage;
+
+	public TextMesh text;
+
 	public enum Target 
 	{
 		PlayerObject, 
 		FallObject,
+	}
+
+	void Start()
+	{
+		GetComponent<SpriteRenderer>().sprite = cardImage;
+		text.text = number.ToString();
+
+		if( mark == "d" )
+		{
+			text.color = Color.red;
+		}
+		if( mark == "c")
+		{
+			text.color = Color.black;
+		}
+
 	}
 
 	/// <summary>
