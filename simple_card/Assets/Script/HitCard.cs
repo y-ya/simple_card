@@ -34,7 +34,7 @@ public class HitCard : MonoBehaviour
 			GameController.Instance.score += 1;
 			Destroy ( gameObject );
 			GameManager.combo.combo_counter += 1;
-
+			GameManager.mainCamera.Shake(GameManager.combo.combo_counter/10.0f);
 			GameManager.combo.current_combo_timer = GameManager.combo.combo_timer;
 			SoundManager.Instance.PlaySE(0);
 		}

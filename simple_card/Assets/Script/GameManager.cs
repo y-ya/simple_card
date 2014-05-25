@@ -9,11 +9,11 @@ public class GameManager : MonoBehaviour {
 	public bool isTimer    = true;
 	public Object[] particleSystems;
 	public float pitch = 0.0f;
-
+	public static CameraShake mainCamera;
 	// Use this for initialization
 	void Awake(){
 		Application.targetFrameRate = 60;
-		particleSystems = Resources.LoadAll("Explosions", typeof(GameObject));
+		mainCamera = Camera.main.gameObject.GetComponent<CameraShake>();  
 	}
 	void Start () {
 		manager = this;
