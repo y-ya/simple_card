@@ -19,7 +19,7 @@ using System.Collections.Generic;
 /// Attach this as a component to a GameObject that include Music.
 /// Comment out "#define ADX" line when you don't use ADX2LE.
 /// </summary>
-public class Music : MonoBehaviour {
+public class Music : SingletonMonoBehaviour<Music> {
 	
 	public class SoundCue
 	{
@@ -328,8 +328,17 @@ public class Music : MonoBehaviour {
 
 	#region Initialize & Update
 
-	void Awake()
+	new void Awake()
 	{
+		if( CheckInstance() )
+		{
+			DontDestroyOnLoad(gameObject);
+		}else{
+			Destroy (gameObject);
+			return;
+		}
+
+
 		Current = this;
         MusicList.Add( this );
 #if ADX

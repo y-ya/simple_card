@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class Card : MonoBehaviour {
@@ -9,7 +9,13 @@ public class Card : MonoBehaviour {
 	private bool   __isTouch;
 	public int    number;
 	public string mark  ;
-	public bool   isTouch;
+
+	public Sprite cardImage;
+
+	public bool isTouch = false;
+
+	public TextMesh text;
+
 	public enum Target 
 	{
 		PlayerObject, 
