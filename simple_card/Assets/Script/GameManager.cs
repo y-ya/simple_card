@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour {
 		manager = this;
 		GameObject obj = GameObject.Find ("Combo") as GameObject;
 		combo = obj.GetComponent<Combo> ();
+
+		GameController.Instance.score = 0;
 	}
 	
 	// Update is called once per frame
@@ -30,7 +32,7 @@ public class GameManager : MonoBehaviour {
 			if (play_time <= 0) {
 				enabled = false;
 				setScoreText();
-				LoadLevel(Application.loadedLevelName);
+				LoadLevel(2);
 
 				// BGM Reset.
 				Music.CurrentSource.source.pitch = 1.0f;
@@ -39,7 +41,7 @@ public class GameManager : MonoBehaviour {
 			if(end_count <= 0){
 				enabled = false;
 				setScoreText();
-				LoadLevel(Application.loadedLevelName);
+				LoadLevel(2);
 			}
 		}
 
@@ -48,12 +50,12 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
-	void LoadLevel(string levelName)
+	void LoadLevel(int nextLevel)
 	{
 		FadeCamera.Instance.UpdateMaskTexture( Resources.Load<Texture>("test1"));
 		FadeCamera.Instance.FadeOut(0.3f, ()=>
 		                            {
-			Application.LoadLevel (Application.loadedLevelName);
+			Application.LoadLevel (nextLevel);
 			FadeCamera.Instance.UpdateMaskTexture( Resources.Load<Texture>("test2"));
 			FadeCamera.Instance.FadeIn(0.3f, null);
 		});
