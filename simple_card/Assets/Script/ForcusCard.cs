@@ -46,6 +46,7 @@ public class ForcusCard : SingletonMonoBehaviour<ForcusCard>
 				}
 				lastForcusObject = collider.gameObject;
 				card.isTouch = true;
+				Destroy(collider.gameObject,1.0f);
 				IsForcus = true;
 				if (forcusObjectE != null) {
 					forcusObjectE (lastForcusObject);
