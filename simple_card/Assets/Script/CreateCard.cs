@@ -5,9 +5,9 @@ using System.Collections;
 }*/
 public class CreateCard {
 
-	public int max_number = 9;
+	public int max_number = 4;
 	private readonly string   resource_path = "card/{0}";
-	private readonly string[] card_type     = {"c","s","d","h"};
+	private readonly string[] card_type     = {"c","d","s","h"};
 
 	/*public Texture2D findCardOfTexture2D( int number = 0 , string mark = null ){
 		if(string.IsNullOrEmpty(mark))
@@ -19,7 +19,7 @@ public class CreateCard {
 	}*/
 	public GameObject findCardOfGameObject(Card.Target target = Card.Target.FallObject, bool set_kinematic = true, int number = 0 , string mark = null ){
 		if(string.IsNullOrEmpty(mark))
-			mark = card_type[Random.Range(0,4)];
+			mark = card_type[Random.Range(0,2)];
 		if(number <= 0)
 			number = Random.Range(1,max_number);
 		string file_name = makeFileString (number, mark);
