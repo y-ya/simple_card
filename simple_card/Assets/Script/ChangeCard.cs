@@ -20,13 +20,13 @@ public class ChangeCard : MonoBehaviour {
 
 		hand  = GameObject.Find("hands");
 		set1  = hand.gameObject.transform.FindChild("SetCardPosition1").gameObject;
-		card1 = Instantiate(card.findCardOfGameObject(), set1.transform.position, Quaternion.identity) as GameObject;
+		card1 = Instantiate(card.findCardOfGameObject(Card.Target.PlayerObject), set1.transform.position, Quaternion.identity) as GameObject;
 		set2  = hand.gameObject.transform.FindChild("SetCardPosition2").gameObject;
-		card2 = Instantiate(card.findCardOfGameObject(), set2.transform.position, Quaternion.identity) as GameObject;
+		card2 = Instantiate(card.findCardOfGameObject(Card.Target.PlayerObject), set2.transform.position, Quaternion.identity) as GameObject;
 		set3  = hand.gameObject.transform.FindChild("SetCardPosition3").gameObject;
-		card3 = Instantiate(card.findCardOfGameObject(), set3.transform.position, Quaternion.identity) as GameObject;
+		card3 = Instantiate(card.findCardOfGameObject(Card.Target.PlayerObject), set3.transform.position, Quaternion.identity) as GameObject;
 		set4  = hand.gameObject.transform.FindChild("SetCardPosition4").gameObject;
-		card4 = Instantiate(card.findCardOfGameObject(), set4.transform.position, Quaternion.identity) as GameObject;
+		card4 = Instantiate(card.findCardOfGameObject(Card.Target.PlayerObject), set4.transform.position, Quaternion.identity) as GameObject;
 	}
 	
 	// Update is called once per frame
