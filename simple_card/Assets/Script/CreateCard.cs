@@ -17,7 +17,12 @@ public class CreateCard {
 		string file_name = makeFileString (number, mark);
 		return Resources.Load<Texture2D> ( file_name );
 	}*/
-	public GameObject findCardOfGameObject(Card.Target target = Card.Target.FallObject, bool set_kinematic = true, int number = 0 , string mark = null ){
+	public GameObject findCardOfGameObject(
+						Card.Target target = Card.Target.FallObject, 
+						bool set_kinematic = true, 
+						int number = 0 , 
+						string mark = null )
+	{
 		if(string.IsNullOrEmpty(mark))
 			mark = card_type[Random.Range(0,2)];
 		if(number <= 0)

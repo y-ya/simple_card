@@ -338,6 +338,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   createTime: 1
+  topLeft: {x: -2.8499999, y: -.170000002, z: 0}
+  bottomRight: {x: 2.98000002, y: -7.21999979, z: 0}
 --- !u!114 &492348300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -481,6 +483,7 @@ MonoBehaviour:
   play_time: 10
   isTimer: 1
   particleSystems: []
+  pitch: 0
 --- !u!4 &948217011
 Transform:
   m_ObjectHideFlags: 0
