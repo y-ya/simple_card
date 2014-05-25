@@ -4,6 +4,7 @@ using System.Collections;
 public class GameManager : MonoBehaviour {
 	public static GameManager manager;
 	public static Combo combo;
+	public static GameObject greatEffect;
 	public int end_count   = 10;
 	public float play_time = 10f;
 	public bool isTimer    = true;
@@ -13,6 +14,7 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Awake(){
 		Application.targetFrameRate = 60;
+		greatEffect = Resources.Load<GameObject>("prefab/GreatEffect");
 		mainCamera = Camera.main.gameObject.GetComponent<CameraShake>();  
 	}
 	void Start () {
