@@ -8,7 +8,9 @@ public class HitCard : MonoBehaviour
 		Card selfCardState = GetComponent<Card>();
 		Card hitCardState = other.GetComponent<Card>();
 
-		if( hitCardState == null)
+
+
+		if( hitCardState == null || selfCardState.target != Card.Target.PlayerObject)
 		{
 			return;
 		}
