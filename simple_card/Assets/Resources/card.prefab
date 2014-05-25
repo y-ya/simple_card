@@ -68,8 +68,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b90ca8c8176f47e1b6a80bbf4394473, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 2
-  mark: d
+  number: 3
+  mark: h
   target: 1
 --- !u!114 &11400002
 MonoBehaviour:
@@ -103,7 +103,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortingLayerID: 0
-  m_Sprite: {fileID: 21300000, guid: 77435bccc1ffd43dd838d5eb1ad03255, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a550bb3e4597e4b40abdccc323e244f2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
