@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour {
 
 		GameController.Instance.score = 0;
 		Music.CurrentSource.source.pitch = 1.0f;
+		Music.CurrentSource.Play();
 	}
 	
 	// Update is called once per frame
