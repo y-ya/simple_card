@@ -80,6 +80,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5017f5c5c641449c8a9412c388c9e07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  range: 3
   preMousePositionPoition: {x: 0, y: 0, z: 0}
 --- !u!114 &11400008
 MonoBehaviour:
@@ -103,6 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 276607b4dceea4017b13a34fe2029c76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  power: 40
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
