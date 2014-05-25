@@ -32,16 +32,16 @@ public class ChangeCard : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(null == card1){
-			card1 = Instantiate(card.findCardOfGameObject(), set1.transform.position, Quaternion.identity) as GameObject;
+			card1 = Instantiate(card.findCardOfGameObject( Card.Target.PlayerObject ), set1.transform.position, Quaternion.identity) as GameObject;
 		}
 		if(null == card2){
-			card2 = Instantiate(card.findCardOfGameObject(), set2.transform.position, Quaternion.identity) as GameObject;
+			card2 = Instantiate(card.findCardOfGameObject( Card.Target.PlayerObject ), set2.transform.position, Quaternion.identity) as GameObject;
 		}
 		if(null == card3){
-			card3 = Instantiate(card.findCardOfGameObject(), set3.transform.position, Quaternion.identity) as GameObject;
+			card3 = Instantiate(card.findCardOfGameObject( Card.Target.PlayerObject ), set3.transform.position, Quaternion.identity) as GameObject;
 		}
 		if(null == card4){
-			card4 = Instantiate(card.findCardOfGameObject(), set4.transform.position, Quaternion.identity) as GameObject;
+			card4 = Instantiate(card.findCardOfGameObject( Card.Target.PlayerObject ), set4.transform.position, Quaternion.identity) as GameObject;
 		}
 	}
 }

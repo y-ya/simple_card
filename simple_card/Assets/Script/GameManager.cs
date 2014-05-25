@@ -3,7 +3,6 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour {
 	public static GameManager manager;
-
 	public int end_count   = 10;
 	public float play_time = 10f;
 	public bool isTimer    = true;
@@ -18,6 +17,7 @@ public class GameManager : MonoBehaviour {
 			play_time -= Time.deltaTime;
 			if (play_time <= 0) {
 				enabled = false;
+				setScoreText();
 				FadeCamera.Instance.UpdateMaskTexture( Resources.Load<Texture>("test1"));
 				FadeCamera.Instance.FadeOut(0.3f, ()=>
 				{
@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour {
 		} else {
 			if(end_count <= 0){
 				enabled = false;
+				setScoreText();
 				FadeCamera.Instance.UpdateMaskTexture( Resources.Load<Texture>("test1"));
 				FadeCamera.Instance.FadeOut(0.3f, ()=>
 				                            {
@@ -39,5 +40,13 @@ public class GameManager : MonoBehaviour {
 			}
 		}
 	}
-
+	private GameObject score;
+	public void setScoreText(){
+		if(null == score){
+			score = Resources.Load<GameObject>("ScoreText");
+			TextMesh tm = score.GetComponent<TextMesh>();
+			tm.text = "Score : "+ GameController.Instance.score;
+			Instantiate (score);
+		}
+	}
 }
