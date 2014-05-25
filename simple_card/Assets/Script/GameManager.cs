@@ -4,6 +4,7 @@ using System.Collections;
 public class GameManager : MonoBehaviour {
 	public static GameManager manager;
 	public static Combo combo;
+	public static GameObject greatEffect;
 	public int end_count   = 10;
 	public float play_time = 10f;
 	public bool isTimer    = true;
@@ -13,12 +14,17 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Awake(){
 		Application.targetFrameRate = 60;
+		greatEffect = Resources.Load<GameObject>("prefab/GreatEffect");
 		mainCamera = Camera.main.gameObject.GetComponent<CameraShake>();  
 	}
 	void Start () {
 		manager = this;
 		GameObject obj = GameObject.Find ("Combo") as GameObject;
 		combo = obj.GetComponent<Combo> ();
+
+		GameController.Instance.score = 0;
+		Music.CurrentSource.source.pitch = 1.0f;
+		Music.CurrentSource.Play();
 	}
 	
 	// Update is called once per frame
@@ -28,7 +34,7 @@ public class GameManager : MonoBehaviour {
 			if (play_time <= 0) {
 				enabled = false;
 				setScoreText();
-				LoadLevel(Application.loadedLevelName);
+				LoadLevel(2);
 
 				// BGM Reset.
 				Music.CurrentSource.source.pitch = 1.0f;
@@ -37,7 +43,7 @@ public class GameManager : MonoBehaviour {
 			if(end_count <= 0){
 				enabled = false;
 				setScoreText();
-				LoadLevel(Application.loadedLevelName);
+				LoadLevel(2);
 			}
 		}
 
@@ -46,12 +52,12 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
-	void LoadLevel(string levelName)
+	void LoadLevel(int nextLevel)
 	{
 		FadeCamera.Instance.UpdateMaskTexture( Resources.Load<Texture>("test1"));
 		FadeCamera.Instance.FadeOut(0.3f, ()=>
 		                            {
-			Application.LoadLevel (Application.loadedLevelName);
+			Application.LoadLevel (nextLevel);
 			FadeCamera.Instance.UpdateMaskTexture( Resources.Load<Texture>("test2"));
 			FadeCamera.Instance.FadeIn(0.3f, null);
 		});

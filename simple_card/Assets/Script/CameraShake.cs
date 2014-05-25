@@ -14,9 +14,9 @@ public class CameraShake : MonoBehaviour {
 	}
 	
 	void Update(){  
-		if(shake_intensity > 0){  
+		if(shake_intensity > 0){
 			transform.position = originPosition + Random.insideUnitSphere * shake_intensity;  
-			shake_intensity -= shake_decay;  
+			shake_intensity -= (GameManager.combo.combo_counter > 0) ? shake_decay : 1000f;
 		}  
 	} 
 	public void Shake(float _shake_intensity){  
