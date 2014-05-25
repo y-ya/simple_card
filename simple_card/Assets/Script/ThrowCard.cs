@@ -1,21 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SwipeTest : MonoBehaviour {
+public class ThrowCard : MonoBehaviour {
 
 	private Vector3 throwDirection;
 
 	private GameObject forcus;
 
+
+	public float power = 24;
+
 	void Start () {
 
 		var swipeCheck = GetComponent<TouchSwipeCheck>();
 		var forcusCard = GetComponent<ForcusCard>();
-
-		swipeCheck.leftSwpeE += () => 
-		{
-			Debug.Log("reload");
-		};
 
 		swipeCheck.swipeE += (direction) => 
 		{
@@ -23,7 +21,7 @@ public class SwipeTest : MonoBehaviour {
 			if( forcusCard.lastForcusObject != null)
 			{
 				var moveCard = forcusCard.lastForcusObject.GetComponent<MoveCard>();
-				moveCard.SetDirection( throwDirection );
+				moveCard.SetDirection( throwDirection * power);
 			}
 		};
 
@@ -34,14 +32,5 @@ public class SwipeTest : MonoBehaviour {
 				forcusCard.lastForcusObject.transform.position = dragWorldPosition;
 			}
 		};
-	}
-
-	void Update()
-	{
-		Debug.DrawRay(Vector3.zero, throwDirection, Color.red);
-	}
-	void OnGUI()
-	{
-		GUILayout.Label(throwDirection.ToString());
 	}
 }

@@ -11,13 +11,13 @@ public class TouchSwipeCheck : MonoBehaviour {
 	public event ThrowEvent swipeE = null;
 	public event DragEvent dragging = null;
 
+	public float range = 3;
+
 	[HideInInspector]
 	public Vector3 preMousePositionPoition = Vector3.zero;
 
-	/*
-	private float swipeStartTime = 0;
+	//private float swipeStartTime = 0;
 	private Vector3 startSwipePosition = Vector3.zero;
-	*/
 
 	void OnDestroy()
 	{
@@ -33,7 +33,7 @@ public class TouchSwipeCheck : MonoBehaviour {
 		{
 			preMousePositionPoition = mousePosition;
 			//swipeStartTime = Time.timeSinceLevelLoad;
-			//startSwipePosition = Input.mousePosition;
+			startSwipePosition = Input.mousePosition;
 		}
 
 		if( Input.GetMouseButtonUp(0) )
@@ -42,11 +42,11 @@ public class TouchSwipeCheck : MonoBehaviour {
 
 			if( swipeE != null )
 			{
-				//Vector3 diffSwipe = (preMousePositionPoition - startSwipePosition) / swipedTime;
-				Vector3 diffMousePosition = mousePosition - preMousePositionPoition;
+				Vector3 diffSwipe = ( preMousePositionPoition - startSwipePosition);
+				//Vector3 diffMousePosition = mousePosition - preMousePositionPoition;
 
 				if( swipeE != null){
-					swipeE( diffMousePosition );
+					swipeE( diffSwipe.normalized );
 				}
 			}
 		}
@@ -64,14 +64,12 @@ public class TouchSwipeCheck : MonoBehaviour {
 
 			if( dragging != null)
 			{
-				Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePosition - (Camera.main.transform.position.z * transform.forward));
-				dragging(worldPos);
+					Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePosition - (Camera.main.transform.position.z * transform.forward));
+					dragging(worldPos);
 			}
 
 			preMousePositionPoition = mousePosition;
 
-		}else{
-			preMousePositionPoition = Vector3.zero;
 		}
 	}
 }
