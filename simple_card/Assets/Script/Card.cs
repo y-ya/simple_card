@@ -22,6 +22,19 @@ public class Card : MonoBehaviour {
 		FallObject,
 	}
 
+	void Start()
+	{
+		text.text = number.ToString();
+		if( mark == "d")
+		{
+			text.color = Color.red;
+		}
+		if( mark == "c")
+		{
+			text.color = Color.black;
+		}
+	}
+
 	/// <summary>
 	/// 0: player obj 1: fall obj
 	/// </summary>
