@@ -18,35 +18,34 @@ public class GameManager : MonoBehaviour {
 			if (play_time <= 0) {
 				enabled = false;
 				setScoreText();
-				FadeCamera.Instance.UpdateMaskTexture( Resources.Load<Texture>("test1"));
-				FadeCamera.Instance.FadeOut(0.3f, ()=>
-				{
-					Application.LoadLevel (Application.loadedLevelName);
-					FadeCamera.Instance.UpdateMaskTexture( Resources.Load<Texture>("test2"));
-					FadeCamera.Instance.FadeIn(0.3f, null);
-				});
+				LoadLevel(Application.loadedLevelName);
 			}
 		} else {
 			if(end_count <= 0){
 				enabled = false;
 				setScoreText();
-				FadeCamera.Instance.UpdateMaskTexture( Resources.Load<Texture>("test1"));
-				FadeCamera.Instance.FadeOut(0.3f, ()=>
-				                            {
-					Application.LoadLevel (Application.loadedLevelName);
-					FadeCamera.Instance.UpdateMaskTexture( Resources.Load<Texture>("test2"));
-					FadeCamera.Instance.FadeIn(0.3f, null);
-				});
+				LoadLevel(Application.loadedLevelName);
 			}
 		}
+	}
+
+	void LoadLevel(string levelName)
+	{
+		FadeCamera.Instance.UpdateMaskTexture( Resources.Load<Texture>("test1"));
+		FadeCamera.Instance.FadeOut(0.3f, ()=>
+		                            {
+			Application.LoadLevel (Application.loadedLevelName);
+			FadeCamera.Instance.UpdateMaskTexture( Resources.Load<Texture>("test2"));
+			FadeCamera.Instance.FadeIn(0.3f, null);
+		});
 	}
 	private GameObject score;
 	public void setScoreText(){
 		if(null == score){
-			score = Resources.Load<GameObject>("ScoreText");
+			score = (GameObject)Instantiate (Resources.Load<GameObject>("ScoreText"));
+
 			TextMesh tm = score.GetComponent<TextMesh>();
 			tm.text = "Score : "+ GameController.Instance.score;
-			Instantiate (score);
 		}
 	}
 }

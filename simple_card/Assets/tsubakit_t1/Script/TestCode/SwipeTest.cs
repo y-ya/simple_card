@@ -20,8 +20,11 @@ public class SwipeTest : MonoBehaviour {
 		swipeCheck.swipeE += (direction) => 
 		{
 			throwDirection = direction;
-			var moveCard = forcusCard.lastForcusObject.GetComponent<MoveCard>();
-			moveCard.SetDirection( throwDirection );
+			if( forcusCard.lastForcusObject != null)
+			{
+				var moveCard = forcusCard.lastForcusObject.GetComponent<MoveCard>();
+				moveCard.SetDirection( throwDirection );
+			}
 		};
 
 		swipeCheck.dragging += (dragWorldPosition) =>  
