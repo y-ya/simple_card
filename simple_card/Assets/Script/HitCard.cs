@@ -36,6 +36,7 @@ public class HitCard : MonoBehaviour
 			GameManager.combo.combo_counter += 1;
 
 			GameManager.combo.current_combo_timer = GameManager.combo.combo_timer;
+			SoundManager.Instance.PlaySE(0);
 		}
 	}
 
