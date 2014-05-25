@@ -21,8 +21,8 @@ public class SelectCardTest : MonoBehaviour {
 	
 	void OnGUI ()
 	{
-		if (selectCard.forcusObject != null) {
-			GUILayout.Label (selectCard.forcusObject.name);
+		if (selectCard.lastForcusObject != null) {
+			GUILayout.Label (selectCard.lastForcusObject.name);
 		}
 	}
 }

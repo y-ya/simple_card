@@ -19,12 +19,7 @@ public class ForcusCard : SingletonMonoBehaviour<ForcusCard>
 	/// forcus object
 	/// </summary>
 	/// <value>The forcus object.</value>
-	public GameObject forcusObject { get; private set; }
-	public bool isSelected {
-		get {
-			return forcusObject != null;
-		}
-	}
+	public GameObject lastForcusObject { get; private set; }
 
 	protected Camera _mainCamera; 
 
@@ -32,6 +27,8 @@ public class ForcusCard : SingletonMonoBehaviour<ForcusCard>
 	{
 		_mainCamera = Camera.main;
 	}
+
+	public bool IsForcus{get; private set;}
 
 	void Update ()
 	{
@@ -42,20 +39,20 @@ public class ForcusCard : SingletonMonoBehaviour<ForcusCard>
 
 			var collider = Physics2D.OverlapCircle (tapPosition, 0.1f);
 			if (collider != null) {
-				forcusObject = collider.gameObject;
+				lastForcusObject = collider.gameObject;
+				IsForcus = true;
 				if (forcusObjectE != null) {
-					forcusObjectE (forcusObject);
+					forcusObjectE (lastForcusObject);
 				}
 			}
 		}
 
 		// release object
 		if (Input.GetMouseButtonUp (0)) {
-			if (forcusObject != null && releaseObjectE != null) {
-				releaseObjectE (forcusObject);
+			IsForcus = false;
+			if (lastForcusObject != null && releaseObjectE != null) {
+				releaseObjectE (lastForcusObject);
 			}
-
-			forcusObject = null;
 		}
 	}
 
