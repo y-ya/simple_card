@@ -7,9 +7,12 @@ public class GameManager : MonoBehaviour {
 	public int end_count   = 10;
 	public float play_time = 10f;
 	public bool isTimer    = true;
+	public Object[] particleSystems;
+
 	// Use this for initialization
 	void Awake(){
 		Application.targetFrameRate = 60;
+		particleSystems = Resources.LoadAll("Explosions", typeof(GameObject));
 	}
 	void Start () {
 		manager = this;
