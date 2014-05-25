@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour {
 	public float play_time = 10f;
 	public bool isTimer    = true;
 	public Object[] particleSystems;
+	public float pitch = 0.0f;
 
 	// Use this for initialization
 	void Awake(){
@@ -28,6 +29,9 @@ public class GameManager : MonoBehaviour {
 				enabled = false;
 				setScoreText();
 				LoadLevel(Application.loadedLevelName);
+
+				// BGM Reset.
+				Music.CurrentSource.source.pitch = 1.0f;
 			}
 		} else {
 			if(end_count <= 0){
@@ -35,6 +39,10 @@ public class GameManager : MonoBehaviour {
 				setScoreText();
 				LoadLevel(Application.loadedLevelName);
 			}
+		}
+
+		if( combo.combo_counter > 0 && isTimer ) {
+			Music.CurrentSource.source.pitch = (float)(1+combo.combo_counter*0.1f);
 		}
 	}
 
