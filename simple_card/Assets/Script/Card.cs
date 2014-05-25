@@ -27,13 +27,5 @@ public class Card : MonoBehaviour {
 	/// </summary>
 	/// <value>The target.</value>
 	public Target    target;
-	private float destroy_timer = 1f;
-	void Update(){
-		if(isTouch){
-			destroy_timer -= Time.deltaTime;
-			if(destroy_timer <= 0){
-				Destroy(gameObject);
-			}
-		}
-	}
+
 }
