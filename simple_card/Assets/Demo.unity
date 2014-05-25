@@ -184,14 +184,14 @@ TextMesh:
     type: 2}
   m_PrefabInternal: {fileID: 1632285285}
   m_GameObject: {fileID: 274238383}
-  m_Text: COMBO 1
+  m_Text: "\u3053\u3093\u307C!!"
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
   m_Anchor: 2
-  m_Alignment: 0
+  m_Alignment: 1
   m_TabSize: 4
-  m_FontSize: 14
+  m_FontSize: 12
   m_FontStyle: 0
   m_RichText: 1
   m_Font: {fileID: 12800000, guid: 38642a7ae2c344dda8208f0bfc6a204c, type: 3}
@@ -214,7 +214,7 @@ Renderer:
   - {fileID: 2100000, guid: 38642a7ae2c344dda8208f0bfc6a204c, type: 3}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
+  m_UseLightProbes: 1
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_SortingLayer: 0
@@ -607,7 +607,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: d684284d3bbe64941b0dd04a0f3d335e, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -2.21530676
+      value: -1.10964513
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d684284d3bbe64941b0dd04a0f3d335e, type: 2}
       propertyPath: m_LocalPosition.y
@@ -644,7 +644,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 38642a7ae2c344dda8208f0bfc6a204c, type: 3}
     - target: {fileID: 10200000, guid: d684284d3bbe64941b0dd04a0f3d335e, type: 2}
       propertyPath: m_FontSize
-      value: 14
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d684284d3bbe64941b0dd04a0f3d335e, type: 2}
       propertyPath: m_LocalScale.x
@@ -656,7 +656,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 10200000, guid: d684284d3bbe64941b0dd04a0f3d335e, type: 2}
       propertyPath: m_Text
-      value: "\u3059\u3053\u3042"
+      value: "\u3059\u3053\u3042:0"
       objectReference: {fileID: 0}
     - target: {fileID: 10200000, guid: d684284d3bbe64941b0dd04a0f3d335e, type: 2}
       propertyPath: m_Anchor
@@ -665,6 +665,18 @@ Prefab:
     - target: {fileID: 100000, guid: d684284d3bbe64941b0dd04a0f3d335e, type: 2}
       propertyPath: m_Name
       value: Score
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: d684284d3bbe64941b0dd04a0f3d335e, type: 2}
+      propertyPath: m_UseLightProbes
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 10200000, guid: d684284d3bbe64941b0dd04a0f3d335e, type: 2}
+      propertyPath: m_Alignment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 10200000, guid: d684284d3bbe64941b0dd04a0f3d335e, type: 2}
+      propertyPath: m_TabSize
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11400000, guid: d684284d3bbe64941b0dd04a0f3d335e, type: 2}
@@ -709,14 +721,14 @@ TextMesh:
     type: 2}
   m_PrefabInternal: {fileID: 1159590277}
   m_GameObject: {fileID: 1267888734}
-  m_Text: "\u3059\u3053\u3042"
+  m_Text: "\u3059\u3053\u3042:0"
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
   m_Anchor: 2
-  m_Alignment: 0
-  m_TabSize: 4
-  m_FontSize: 14
+  m_Alignment: 1
+  m_TabSize: 1
+  m_FontSize: 12
   m_FontStyle: 0
   m_RichText: 1
   m_Font: {fileID: 12800000, guid: 38642a7ae2c344dda8208f0bfc6a204c, type: 3}
@@ -739,7 +751,7 @@ Renderer:
   - {fileID: 2100000, guid: 38642a7ae2c344dda8208f0bfc6a204c, type: 3}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
+  m_UseLightProbes: 1
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_SortingLayer: 0
@@ -752,7 +764,7 @@ Transform:
   m_PrefabInternal: {fileID: 1159590277}
   m_GameObject: {fileID: 1267888734}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.21530676, y: 1.05448389, z: 0}
+  m_LocalPosition: {x: -1.10964513, y: 1.05448389, z: 0}
   m_LocalScale: {x: .5, y: .5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -879,7 +891,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 38642a7ae2c344dda8208f0bfc6a204c, type: 3}
     - target: {fileID: 10200000, guid: d684284d3bbe64941b0dd04a0f3d335e, type: 2}
       propertyPath: m_FontSize
-      value: 14
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d684284d3bbe64941b0dd04a0f3d335e, type: 2}
       propertyPath: m_LocalScale.x
@@ -891,11 +903,23 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 10200000, guid: d684284d3bbe64941b0dd04a0f3d335e, type: 2}
       propertyPath: m_Text
-      value: COMBO 1
+      value: "\u3053\u3093\u307C!!"
       objectReference: {fileID: 0}
     - target: {fileID: 10200000, guid: d684284d3bbe64941b0dd04a0f3d335e, type: 2}
       propertyPath: m_Anchor
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: d684284d3bbe64941b0dd04a0f3d335e, type: 2}
+      propertyPath: m_UseLightProbes
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 10200000, guid: d684284d3bbe64941b0dd04a0f3d335e, type: 2}
+      propertyPath: m_Alignment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 10200000, guid: d684284d3bbe64941b0dd04a0f3d335e, type: 2}
+      propertyPath: m_RichText
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d684284d3bbe64941b0dd04a0f3d335e, type: 2}

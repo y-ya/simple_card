@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Combo : MonoBehaviour {
 
-	private string combo = "{0}COMBO !!";
+	private string combo = "{0}こんぼ!!";
 	public int   combo_counter = 2;
 	public float current_combo_timer = 0;
 	public float combo_timer = 2f;
