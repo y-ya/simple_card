@@ -39,8 +39,12 @@ public class ForcusCard : SingletonMonoBehaviour<ForcusCard>
 
 			var collider = Physics2D.OverlapCircle (tapPosition, 0.1f);
 			if (collider != null) {
+				Card card = collider.GetComponent<Card>();
+				Debug.Log(card.isTouch);
+				if( card.target != Card.Target.PlayerObject){
+					return;
+				}
 				lastForcusObject = collider.gameObject;
-				Card card = lastForcusObject.GetComponent<Card>();
 				card.isTouch = true;
 				IsForcus = true;
 				if (forcusObjectE != null) {
