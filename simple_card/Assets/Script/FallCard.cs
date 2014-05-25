@@ -18,8 +18,10 @@ public class FallCard : MonoBehaviour
 	{
 		current_timer -= Time.deltaTime;
 		if (current_timer <= 0.0f) {
-			current_timer = createTime;
-
+			current_timer = createTime - GameManager.combo.combo_counter;
+			if(current_timer <= 1.0f){
+				current_timer = 1.0f;
+			}
 			GameObject obj = Instantiate(
 				createCard.findCardOfGameObject(Card.Target.FallObject, false), 
 				new Vector3(Random.Range(-5,5), 5, 0), 
