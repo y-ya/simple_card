@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour {
 	public float play_time = 10f;
 	public bool isTimer    = true;
 	// Use this for initialization
+	void Awake(){
+		Application.targetFrameRate = 60;
+	}
 	void Start () {
 		manager = this;
 		GameObject obj = GameObject.Find ("Combo") as GameObject;
