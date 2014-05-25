@@ -26,7 +26,12 @@ public class HitCard : MonoBehaviour
 			if(hitCardState.mark  == selfCardState.mark &&
 			   hitCardState.number == selfCardState.number){
 				base_point = 2;
-				Instantiate(GameManager.greatEffect);
+				GameObject obj = Instantiate(GameManager.greatEffect) as GameObject;
+				obj.GetComponent<TextMesh>().text = "えくせれんと!!";
+			}else if(hitCardState.number == selfCardState.number){
+				base_point = 1;
+				GameObject obj = Instantiate(GameManager.greatEffect) as GameObject;
+				obj.GetComponent<TextMesh>().text = "ぐれーと!";
 			}
 			//TODO
 			other.gameObject.rigidbody2D.AddForce(new Vector2(0f,1200f));
@@ -40,7 +45,9 @@ public class HitCard : MonoBehaviour
 			GameManager.combo.combo_counter += 1;
 			GameController.Instance.score += GameManager.combo.combo_counter + base_point;
 			Destroy ( gameObject );
-			GameManager.mainCamera.Shake(GameManager.combo.combo_counter/10.0f);
+			if( GameManager.combo.combo_counter >= 3 ){
+				GameManager.mainCamera.Shake(GameManager.combo.combo_counter/10.0f);
+			}
 			GameManager.combo.current_combo_timer = GameManager.combo.combo_timer;
 			//SoundManager.Instance.PlaySE(0);
 			SoundManager.Instance.PlaySE(GameManager.combo.combo_counter%8 + 1);

@@ -9,3 +9,5 @@ EditorBuildSettings:
     path: Assets/znoda/title.unity
   - enabled: 1
     path: Assets/Demo.unity
+  - enabled: 1
+    path: Assets/Result.unity
