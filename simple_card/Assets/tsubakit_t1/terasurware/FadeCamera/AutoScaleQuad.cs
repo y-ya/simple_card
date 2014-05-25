@@ -58,7 +58,7 @@ public class AutoScaleQuad : MonoBehaviour {
 			targetQuad.transform.localScale = new Vector3 (width, height, 0);
 		}
 
-		targetQuad.transform.localPosition = Vector3.zero + transform.forward;
+		//targetQuad.transform.localPosition = Vector3.zero + transform.forward;
 
 		if( scalableMask )
 		{
