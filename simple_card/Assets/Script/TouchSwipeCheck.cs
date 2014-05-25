@@ -5,8 +5,8 @@ public class TouchSwipeCheck : MonoBehaviour {
 
 	// PC用
 	#if UNITY_STANDALONE_OSX
-	viod Start() {
-		GUI.Button(new Rect(30,30,200,80), "モバイル用のクラスです")
+	void Start() {
+		GUI.Button (new Rect (30, 30, 200, 80), "モバイル用のクラスです");
 	}
 	#endif
 	// モバイル用
