@@ -18,7 +18,7 @@ public class ResultBarController : MonoBehaviour {
 
 		int max = Mathf.Max( gameController.oldScoreQueue.ToArray());
 		max = max == 0 ? 1 : max;
-		rate = (float)14 / max;
+		rate = (float)12 / max;
 
 
 		foreach( var bar in barList)
