@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Title : MonoBehaviour {
+public class TitleLoad : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {

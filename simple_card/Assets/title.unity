@@ -73,6 +73,7 @@ NavMeshSettings:
     minRegionArea: 2
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
+    tileSizeHint: 0
   m_NavMesh: {fileID: 0}
 --- !u!1 &53816383
 GameObject:
@@ -124,6 +125,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 2
 --- !u!1 &142428333
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,7 +150,7 @@ GUIText:
   m_GameObject: {fileID: 142428333}
   m_Enabled: 1
   serializedVersion: 3
-  m_Text: "\u3092\u3046\u3064\u30B2\u30FC\u30E0\u3067\u3059\u3002"
+  m_Text: "\u3092\u30B7\u30E3\u30FC\u3059\u308B\u30B2\u30FC\u30E0\u3067\u3059\u3002"
   m_Anchor: 0
   m_Alignment: 0
   m_PixelOffset: {x: -86.9000015, y: 32.5}
@@ -174,6 +176,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 5
 --- !u!1001 &205246097
 Prefab:
   m_ObjectHideFlags: 0
@@ -288,8 +291,11 @@ Camera:
     m_Bits: 2
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
   m_HDR: 0
   m_OcclusionCulling: 0
+  m_StereoConvergence: 10
+  m_StereoSeparation: .0219999999
 --- !u!4 &1321231239
 Transform:
   m_ObjectHideFlags: 0
@@ -302,6 +308,7 @@ Transform:
   m_Children:
   - {fileID: 1625298730}
   m_Father: {fileID: 0}
+  m_RootOrder: 0
 --- !u!1 &1464374789
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,8 +376,11 @@ Camera:
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
   m_HDR: 0
   m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: .0219999999
 --- !u!4 &1464374794
 Transform:
   m_ObjectHideFlags: 0
@@ -382,6 +392,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 1
 --- !u!1 &1625298729
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,6 +421,7 @@ Transform:
   m_LocalScale: {x: .200000003, y: .200000003, z: 0}
   m_Children: []
   m_Father: {fileID: 1321231239}
+  m_RootOrder: 0
 --- !u!23 &1625298731
 Renderer:
   m_ObjectHideFlags: 0
@@ -429,9 +441,8 @@ Renderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: 0
-  m_SortingOrder: 0
   m_SortingLayerID: 0
+  m_SortingOrder: 0
 --- !u!33 &1625298732
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -487,6 +498,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 3
 --- !u!114 &1948420999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -548,3 +560,4 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 4
