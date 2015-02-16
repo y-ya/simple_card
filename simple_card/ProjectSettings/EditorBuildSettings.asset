@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/znoda/title.unity
+    path: Assets/title.unity
   - enabled: 1
     path: Assets/Demo.unity
   - enabled: 1
